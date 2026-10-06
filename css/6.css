@@ -1,0 +1,405 @@
+/* Mobile pass — phones and small tablets.
+   Loaded last so these rules win over css/1–5. Desktop layout above 768px
+   keeps the original grid, header button, and section rhythm. */
+
+:root {
+  color-scheme: dark;
+  --bg: #000;
+  --bg-raise: #000;
+  --bg-card: #000;
+  --surface: #000;
+  --surface-lift: #000;
+  --card: #000;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: #000 !important;
+  background-color: #000 !important;
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background: #000 !important;
+  background-color: #000 !important;
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+.btn,
+.brand,
+.footer-nav a,
+.text-link,
+.float-cta .btn {
+  min-height: 48px;
+}
+
+.hero-grid,
+.card-grid,
+.fit-grid,
+.apply-grid,
+.quote-grid,
+.yt-grid,
+.footer-grid,
+.legal-grid {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.float-cta {
+  display: none;
+}
+
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    width: min(
+      1120px,
+      calc(100% - 2rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px))
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  /* Page-level clip was swallowing the proof rail's sideways touch scroll. */
+  html,
+  body {
+    overflow-x: visible;
+  }
+
+  html {
+    scroll-padding-top: calc(4.5rem + env(safe-area-inset-top, 0px));
+  }
+
+  .topbar {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .topbar-inner {
+    min-height: 3.5rem;
+  }
+
+  .brand {
+    min-width: 0;
+    max-width: calc(100% - 0.5rem);
+  }
+
+  .brand-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding-top: 0.65rem;
+    padding-bottom: 0.35rem;
+  }
+
+  .hero-actions {
+    margin-top: 1rem;
+  }
+
+  .hero-actions .btn,
+  .cta-band .btn,
+  .cta-inner > .btn {
+    width: 100%;
+  }
+
+  .hero-note {
+    margin-top: 0.7rem;
+    margin-bottom: 0;
+  }
+
+  /* Portrait crop from the top so the head stays in frame. */
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-height: 28rem;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-figure figcaption {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    padding: 2rem 0.9rem 0.85rem;
+  }
+
+  .protocol,
+  .proof,
+  .apply,
+  .fit,
+  .cases,
+  .videos,
+  .cta-band {
+    padding: 1.15rem 0;
+  }
+
+  .section-head {
+    margin-bottom: 0.85rem;
+  }
+
+  .yt-grid {
+    gap: 0.85rem;
+  }
+
+  .yt {
+    overflow: visible;
+  }
+
+  .yt figcaption {
+    position: relative;
+    z-index: 2;
+    margin-top: -2.6rem;
+    padding: 1.7rem 0.85rem 0.75rem;
+    background: linear-gradient(transparent, #0b0b0b 42%, #0b0b0b);
+    color: #f6f1e8;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+    text-transform: none;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  .cases {
+    overflow: visible;
+  }
+
+  .cases .wrap {
+    overflow: visible;
+  }
+
+  .ig-grid {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% - 5.25rem);
+    gap: 0.75rem;
+    padding:
+      0.15rem
+      1.25rem
+      0.85rem
+      max(1rem, env(safe-area-inset-left, 0px));
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    touch-action: pan-x pan-y;
+    scrollbar-width: auto;
+    scrollbar-color: var(--gold) rgba(246, 241, 232, 0.16);
+  }
+
+  .ig-grid::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .ig-grid::-webkit-scrollbar-track {
+    background: rgba(246, 241, 232, 0.08);
+    border-radius: 999px;
+  }
+
+  .ig-grid::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 999px;
+  }
+
+  .ig-card {
+    scroll-snap-align: start;
+  }
+
+  .ig-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 43% center;
+    background: #000;
+  }
+
+  .ig-card figcaption {
+    padding: 0.7rem 0.8rem 0.8rem;
+    color: #e7dfd4;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    white-space: normal;
+  }
+
+  .scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.55rem;
+    color: #e4d0a4;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+  }
+
+  .scroll-hint::after {
+    content: "→";
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+
+  .disclaimer,
+  .legal p,
+  .cta-fine,
+  .footer-blurb,
+  .footer-base {
+    color: #e4ddd2;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .float-cta {
+    display: block;
+    position: fixed;
+    z-index: 80;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding:
+      10px
+      max(16px, env(safe-area-inset-right, 0px))
+      calc(10px + env(safe-area-inset-bottom, 0px))
+      max(16px, env(safe-area-inset-left, 0px));
+    background: rgba(0, 0, 0, 0.96);
+    border-top: 1px solid var(--line);
+  }
+
+  .float-cta .btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+  }
+
+  body.has-float-cta {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: clamp(1.85rem, 8.6vw, 2.35rem);
+  }
+
+  h2 {
+    font-size: clamp(1.65rem, 7.2vw, 2.15rem);
+  }
+
+  .lede,
+  .section-lede,
+  .cta-lede {
+    font-size: 1rem;
+  }
+
+  .hero-note {
+    letter-spacing: 0.05em;
+    line-height: 1.45;
+  }
+
+  .card,
+  .panel,
+  .quote {
+    padding: 1.05rem 0.95rem 1.15rem;
+  }
+
+  .card h3 {
+    font-size: 1.65rem;
+  }
+
+  .quote blockquote {
+    font-size: 1.28rem;
+  }
+
+  .rating-score {
+    font-size: clamp(3.25rem, 18vw, 4.5rem);
+  }
+
+  .footer {
+    padding: 1.35rem 0 1rem;
+  }
+
+  .footer-brand {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .float-cta .btn,
+  .hero-actions .btn,
+  .cta-band .btn {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    padding-inline: 0.75rem;
+  }
+}
+
+/* True black page shell. Matches the funnel stamp: no white canvas or gutters.
+   The proof rail stays overflow-visible so sideways touch scroll still works. */
+html,
+body,
+#root,
+main,
+#preview-container,
+.preview-container,
+.hl_page-preview--content,
+.hl_page-preview--content .inner,
+.c-section,
+.c-row,
+.c-column,
+.c-wrapper,
+.c-custom-code,
+.fullSection,
+.topbar,
+.site-header,
+.hero,
+.section,
+.protocol,
+.proof,
+.apply,
+.fit,
+.cases,
+.videos,
+.cta-band,
+.wrap,
+.closing,
+.footer,
+.site-footer,
+.float-cta,
+.mobile-nav {
+  background-color: #000 !important;
+}
+
+.topbar,
+.float-cta {
+  background: rgba(0, 0, 0, 0.96) !important;
+}
+
+.hl_page-preview--content .c-section > .inner,
+.hl_page-preview--content .c-row,
+.hl_page-preview--content .c-column,
+.hl_page-preview--content .c-custom-code {
+  max-width: none !important;
+  width: 100% !important;
+}
