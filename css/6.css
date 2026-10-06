@@ -2,15 +2,32 @@
    Loaded last so these rules win over css/1–5. Desktop layout above 768px
    keeps the original grid, header button, and section rhythm. */
 
+:root {
+  color-scheme: dark;
+  --bg: #000;
+  --bg-raise: #000;
+  --bg-card: #000;
+  --surface: #000;
+  --surface-lift: #000;
+  --card: #000;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background: #000 !important;
+  background-color: #000 !important;
+  min-height: 100%;
+  min-height: 100vh;
 }
 
 body {
   word-wrap: break-word;
   overflow-wrap: break-word;
-  background: #000;
+  background: #000 !important;
+  background-color: #000 !important;
+  min-height: 100%;
+  min-height: 100vh;
 }
 
 .btn,
@@ -336,4 +353,53 @@ body {
     letter-spacing: 0.05em;
     padding-inline: 0.75rem;
   }
+}
+
+/* True black page shell. Matches the funnel stamp: no white canvas or gutters.
+   The proof rail stays overflow-visible so sideways touch scroll still works. */
+html,
+body,
+#root,
+main,
+#preview-container,
+.preview-container,
+.hl_page-preview--content,
+.hl_page-preview--content .inner,
+.c-section,
+.c-row,
+.c-column,
+.c-wrapper,
+.c-custom-code,
+.fullSection,
+.topbar,
+.site-header,
+.hero,
+.section,
+.protocol,
+.proof,
+.apply,
+.fit,
+.cases,
+.videos,
+.cta-band,
+.wrap,
+.closing,
+.footer,
+.site-footer,
+.float-cta,
+.mobile-nav {
+  background-color: #000 !important;
+}
+
+.topbar,
+.float-cta {
+  background: rgba(0, 0, 0, 0.96) !important;
+}
+
+.hl_page-preview--content .c-section > .inner,
+.hl_page-preview--content .c-row,
+.hl_page-preview--content .c-column,
+.hl_page-preview--content .c-custom-code {
+  max-width: none !important;
+  width: 100% !important;
 }
