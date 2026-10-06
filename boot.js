@@ -9,6 +9,8 @@
     });
   })).then(function (chunks) {
     root.innerHTML = chunks.join("").split("__CTA__").join(cta);
+    var floatCta = root.querySelector(".float-cta");
+    if (floatCta) document.body.appendChild(floatCta);
     bootPage();
   }).catch(function () {
     root.innerHTML = '<p class="wrap" style="padding:2rem 0">The page did not load. <a href="https://calendly.com/d/dv83-gss-33k/assessment-call">' + cta + '</a>.</p>';
